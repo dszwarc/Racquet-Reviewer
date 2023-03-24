@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+
+<form action="/racquets" method="POST">
+    <label for="model">Model: </label><input type="text" name="model"><br><br><br>
+    <label for="make">Make: </label><input type="text" name="make"><br><br><br>
+    <label for="headSize">Head Size: </label><input type="text" name="headSize"><br><br><br>
+    <label for="mains">String Pattern M: </label><input type="text" name="mains">
+    <label for="crosses">C: </label><input type="text" name="crosses"><br><br><br>
+    <label for="stiffness">Stiffness: </label><input type="text" name="stiffness"><br><br><br>
+    <label for="power">Power: </label><input type="text" name="power"><br><br><br>
+    <button type="submit">Add Racquet</button>
+</form>
+
+<%- include('../partials/footer') %>

@@ -6,15 +6,18 @@ const racquetSchema = new mongoose.Schema(
         make: 
         {
             type: String,
-            enum: ['Wilson', 'Head', 'Yonex', 'Babolat', '']
+            enum: ['Wilson', 'Head', 'Yonex', 'Babolat', 'Prince']
         },
         headSize: 
         {
             type: Number,
             min: 80,
             max: 110
-        }
-        
+        },
+        mains: Number,
+        crosses: Number,
+        stiffness: Number,
+        power: String,
     }
 )
 
