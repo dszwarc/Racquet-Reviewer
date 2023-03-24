@@ -3,6 +3,15 @@
 
 <h1>Index for racquets</h1>
 
+<% racquets.forEach(r => { %>
+    <div>
+        <h1><%= r.model %></h1>
+        <h4><%= r.make %></h4>
+
+        <a href="/racquets/<%= r._id %>">Details</a>
+    </div>
+<% }) %>
+
 
 
 <%- include('../partials/footer.ejs') %>
