@@ -29,10 +29,22 @@ async function deleteOne(req,res){
     res.redirect('/racquets')
 }
 
+async function edit(req,res){
+    const racquet = await RacquetModel.findById(req.params.id)
+    res.render('racquets/edit',{racquet})
+}
+
+async function update(req, res){
+    const racquet = await RacquetModel.findOneAndUpdate(req.params.id, req.body)
+    res.redirect(`/racquets/${req.params.id}`)
+}
+
 module.exports = {
     index,
     new: newRacquet,
     create,
     show,
-    delete: deleteOne
+    delete: deleteOne,
+    edit,
+    update
 }

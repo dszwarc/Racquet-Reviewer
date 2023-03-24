@@ -8,9 +8,9 @@
 </div>
 
 <% if (user) { %>
-    <form action="/racquets/<%= racquet._id %>?_method=DELETE" method="POST">
-        <button class="btn btn-warning" type="submit">Edit Info</button>
-    </form>
+    
+    <a href="/racquets/<%= racquet._id %>/edit">Edit Racquet Specs</a>
+
     <form action="/racquets/<%= racquet._id %>?_method=DELETE" method="POST">
         <button class="btn btn-danger" type="submit">Delete Racquet</button>
     </form>

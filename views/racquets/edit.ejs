@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+
+<form action="/racquets/<%= racquet._id %>?_method=PUT" method="POST">
+    <label for="model">Model: </label><input type="text" name="model" value="<%= racquet.model%>"><br><br><br>
+    <label for="make">Make: </label><input type="text" name="make" value="<%= racquet.make %>"><br><br><br>
+    <label for="headSize">Head Size: </label><input type="text" name="headSize" value="<%= racquet.headSize %>"><br><br><br>
+    <label for="mains">String Pattern M: </label><input type="text" name="mains" value="<%= racquet.mains %>">
+    <label for="crosses">C: </label><input type="text" name="crosses" value="<%= racquet.crosses %>"><br><br><br>
+    <label for="stiffness">Stiffness: </label><input type="text" name="stiffness" value="<%= racquet.stiffness %>"><br><br><br>
+    <label for="power">Power: </label><input type="text" name="power" value="<%= racquet.power %>"><br><br><br>
+    <button type="submit">Update Racquet</button>
+</form>
+
+<%- include('../partials/footer') %>
