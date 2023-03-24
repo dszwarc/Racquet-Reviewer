@@ -3,6 +3,23 @@
 
 <h1>Show page for racquet</h1>
 
+<div>
+    <%= racquet.model %>
+</div>
+
+<% if (user) { %>
+    <form action="/racquets/<%= racquet._id %>?_method=DELETE" method="POST">
+        <button class="btn btn-warning" type="submit">Edit Info</button>
+    </form>
+    <form action="/racquets/<%= racquet._id %>?_method=DELETE" method="POST">
+        <button class="btn btn-danger" type="submit">Delete Racquet</button>
+    </form>
+<% } %>
+
+
+<br>
+
+<h1>Reviews</h1>
 
 
 <%- include('../partials/footer.ejs') %>

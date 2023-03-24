@@ -17,8 +17,22 @@ async function create(req, res){
     res.redirect('/racquets')
 }
 
+async function show(req, res){
+    const racquet = await RacquetModel.findById(req.params.id)
+    res.render('racquets/show', {
+        racquet
+    })
+}
+
+async function deleteOne(req,res){
+    await RacquetModel.deleteOne({_id: req.params.id});
+    res.redirect('/racquets')
+}
+
 module.exports = {
     index,
     new: newRacquet,
-    create
+    create,
+    show,
+    delete: deleteOne
 }
