@@ -14,12 +14,20 @@
     <form action="/racquets/<%= racquet._id %>?_method=DELETE" method="POST">
         <button class="btn btn-danger" type="submit">Delete Racquet</button>
     </form>
-<% } %>
 
+    <a href="/racquets/<%= racquet._id %>/reviews/new">Leave a Review</a>
+
+<% } else { %>
+<p>Please log in to leave a review</p>
+<% } %>
 
 <br>
 
 <h1>Reviews</h1>
-
+<% racquet.reviews.forEach(r => { %>
+    <div>
+        <%= r.content %>
+    </div>
+<% }) %>
 
 <%- include('../partials/footer.ejs') %>
