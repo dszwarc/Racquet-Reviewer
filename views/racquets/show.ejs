@@ -27,6 +27,17 @@
 <% racquet.reviews.forEach(r => { %>
     <div>
         <%= r.content %>
+
+        <% if (user && user._id.equals(r.userId)) { %>
+            <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete Review</button>
+            </form>
+        
+                <br>
+        
+            <a href="/reviews/<%= r._id %>/edit">Edit Review</a>
+        <% } %>
+        
     </div>
 <% }) %>
 

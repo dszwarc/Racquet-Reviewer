@@ -1,5 +1,9 @@
 <%- include('../partials/header') %>
 
-
+<form method="POST" action="/reviews/<%= review._id %>?_method=PUT">
+    <label for="rating">Rating (1-10):</label><input type="text" name="rating" value="<%= review.rating %>"><br>
+    <label for="content">Review:</label><input type="text" name="content" value="<%= review.content %>"><br>
+    <button type="submit">Submit Review</button>
+</form>
 
 <%- include('../partials/footer') %>
