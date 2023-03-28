@@ -1,16 +1,36 @@
 <%- include('../partials/header.ejs') %>
     
+<div class="jumbotron">
+    <h1 id="page-title">ALL RACQUETS</h1>
+    <hr class="my-4">
+    <p class="lead">A list of all racquets cataloged on the website, organized by manufacturer</p>
+</div>
 
-<h1>Index for racquets</h1>
-
-<% racquets.forEach(r => { %>
-    <div>
-        <h1><%= r.model %></h1>
-        <h4><%= r.make %></h4>
-
-        <a href="/racquets/<%= r._id %>">Details</a>
+<main>
+    <div id="racquet-display">
+        <% racquets.forEach(r => { %>
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="..." alt="Racquet Picture">
+                <div class="card-body">
+                  <h5 class="card-title"><%= r.model %></h5>
+                  <p class="card-text"><%= r.description %></p>
+                </div>
+        
+                <a href="/racquets/<%= r._id %>" class="card-link">Details</a>
     </div>
+
 <% }) %>
+
+
+
+
+
+
+
+
+</main>
+
+
 
 
 

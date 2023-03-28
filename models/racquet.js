@@ -28,7 +28,12 @@ const racquetSchema = new mongoose.Schema(
         make: 
         {
             type: String,
-            enum: ['Wilson', 'Head', 'Yonex', 'Babolat', 'Prince']
+            enum: [
+            'Wilson', 'Head', 'Yonex', 
+            'Babolat', 'Prince', 'Gamma', 
+            'Diadem', 'Dunlop', 'Technifibre',
+            'Lacoste', 'ProKennex', 'Volkl'
+        ]
         },
         headSize: 
         {
@@ -39,8 +44,16 @@ const racquetSchema = new mongoose.Schema(
         mains: Number,
         crosses: Number,
         stiffness: Number,
-        power: String,
-        reviews: [reviewSchema]
+        power: {
+            type: String,
+            enum: ['Low', 'Med', 'High']
+        },
+        weight: Number,
+        shortDescription: String,
+        longDescription: String,
+        releaseYear: Number,
+        reviews: [reviewSchema],
+        img: String
     }
 )
 
