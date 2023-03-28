@@ -1,44 +1,72 @@
 <%- include('../partials/header.ejs') %>
-    
 
-<h1>Show page for racquet</h1>
 
-<div>
-    <%= racquet.model %>
+
+<div class="racquet-show">
+    <img id="racquet-show-img" src="<%= racquet.img %>" alt="">
+    <div id="racquet-info">
+        <h1 id="racquet-name"><%= racquet.model %> <%= racquet.releaseYear %></h1>
+        <h4 id="racquet-make"><%= racquet.make %></h4>
+        <br>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><img class="info-img" src="https://www.perfect-tennis.com/wp-content/themes/tennis-theme/assets/images/icon-headsize.svg" alt=""> Head Size: <%= racquet.headSize %> sq. in.</li>
+            <li class="list-group-item"><img class="info-img" src="https://www.perfect-tennis.com/wp-content/themes/tennis-theme/assets/images/icon-string-pattern.svg" alt=""> String Pattern: M: <%= racquet.mains %> | C: <%= racquet.crosses %></li>
+            <li class="list-group-item"><img class="info-img" src="https://www.perfect-tennis.com/wp-content/themes/tennis-theme/assets/images/icon-power.svg" alt=""> Power: <%= racquet.power %></li>
+            <li class="list-group-item"><img class="info-img" src="https://www.perfect-tennis.com/wp-content/themes/tennis-theme/assets/images/icon-strungweight.svg" alt=""> Weight: <%= racquet.weight %> grams</li>
+            <li id="card-text-show" class="card-text list-group-item">Description: <br><%= racquet.longDescription %></li>
+            <% if (user) { %>
+                <li class="list-group-item">
+                    <div id="edit-delete-racquet">
+                        <form action="/racquets/<%= racquet._id %>/edit">
+                            <button class="btn btn-warning" type="submit">Edit Racquet Specs</button>
+                        </form>
+                    
+                        <form action="/racquets/<%= racquet._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger" type="submit">Delete Racquet</button>
+                        </form>
+                    </div>
+                </li>
+            <% } %>
+        </ul>
+        
+    </div>
 </div>
-
-<% if (user) { %>
-    
-    <a href="/racquets/<%= racquet._id %>/edit">Edit Racquet Specs</a>
-
-    <form action="/racquets/<%= racquet._id %>?_method=DELETE" method="POST">
-        <button class="btn btn-danger" type="submit">Delete Racquet</button>
-    </form>
-
-    <a href="/racquets/<%= racquet._id %>/reviews/new">Leave a Review</a>
-
-<% } else { %>
-<p>Please log in to leave a review</p>
-<% } %>
 
 <br>
 
-<h1>Reviews</h1>
-<% racquet.reviews.forEach(r => { %>
-    <div>
-        <%= r.content %>
+<div id="review-section">
+    <h1>Reviews</h1>
+    <% if (user) { %>
+        <form action="/racquets/<%= racquet._id %>/reviews/new">
+            <button class="button" type="submit">Leave a Review</button>
+        </form>
+    <% } else { %>
+        <p>Please log in to be able to leave reviews.</p>
+    <% } %>
+    
+    
+    <% if (racquet.reviews.length > 0) { %>
+        <% racquet.reviews.forEach(r => { %>
+            <div>
+                <%= r.content %>
+        
+                <% if (user && user._id.equals(r.userId)) { %>
+                    <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                        <button type="submit">Delete Review</button>
+                    </form>
+                
+                        <br>
+                
+                    <a href="/reviews/<%= r._id %>/edit">Edit Review</a>
+                <% } %>
+                
+            </div>
+        <% }) %>
+    <% } else { %>
+        <h5>No reviews yet. Be the first to leave a review!</h5>
+    <% } %>
+</div>
 
-        <% if (user && user._id.equals(r.userId)) { %>
-            <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                <button type="submit">Delete Review</button>
-            </form>
-        
-                <br>
-        
-            <a href="/reviews/<%= r._id %>/edit">Edit Review</a>
-        <% } %>
-        
-    </div>
-<% }) %>
+
 
 <%- include('../partials/footer.ejs') %>

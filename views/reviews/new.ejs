@@ -1,7 +1,11 @@
 <%- include('../partials/header') %>
 
 <form method="POST" action="/racquets/<%= racquet._id %>/reviews">
-    <label for="rating">Rating (1-10):</label><input type="text" name="rating"><br>
+   <div>
+    <label for="rating">Rating (1-10):</label>
+    <input type="text" name="rating">
+   </div>
+    <br>
     <label for="content">Review:</label><input type="text" name="content"><br>
     <button type="submit">Submit Review</button>
 </form>

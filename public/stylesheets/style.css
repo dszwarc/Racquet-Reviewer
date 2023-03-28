@@ -49,7 +49,7 @@ main{
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  background-color: rgba(0, 0, 0, 0.11);
+  background-color: rgba(0, 0, 0, 0.338);
 }
 
 #page-title{
@@ -153,7 +153,7 @@ textarea{
 }
 
 .jumbotron{
-  background-color: rgb(100, 140, 250) !important;
+  background-color: rgb(35, 140, 250) !important;
   border-radius: 10px;
   color:aliceblue !important;
 }
@@ -178,4 +178,37 @@ textarea{
 
 .list-group{
   margin-bottom: 0px !important;
+}
+.racquet-show{
+  margin:auto;
+  width: 80vh;
+  height: fit-content;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 
+  "img racquet-name"
+  "img racquet-make"
+  ;
+}
+
+#racquet-show-img{
+  height: 750px;
+  width: auto;
+  grid-column: 1/2;
+  margin: auto;
+}
+
+#edit-delete-racquet{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#card-text-show{
+  height:fit-content;
+}
+
+#review-section{
+  margin: auto;
+  text-align: center;
 }
