@@ -43,7 +43,6 @@ const racquetSchema = new mongoose.Schema(
         },
         mains: Number,
         crosses: Number,
-        stiffness: Number,
         power: {
             type: String,
             enum: ['Low', 'Med', 'High']

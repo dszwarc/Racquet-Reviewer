@@ -1,6 +1,8 @@
 <%- include('../partials/header') %>
 
-<form action="/racquets" method="POST" class="racquet-form">
+<form id="new-racq-form" action="/racquets" method="POST" class="racquet-form">
+    <h3>New Racquet Form</h3>
+    
     <div class="form-group">
         <label for="model">Model:</label>
         <input type="text" name="model" class="form-control" aria-describedby="modelHelp" placeholder="Pure Drive, Radical Pro, etc">
@@ -50,10 +52,6 @@
             </select>
         </div>
          
-    </div>
-    <div class="form-group">
-        <label for="stiffness">Stiffness: </label>
-        <input type="text" name="stiffness" class="form-control">
     </div>
     <div class="form-group">
         <label for="power">Power: </label>

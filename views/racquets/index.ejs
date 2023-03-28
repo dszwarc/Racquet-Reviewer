@@ -9,29 +9,24 @@
 <main>
     <div id="racquet-display">
         <% racquets.forEach(r => { %>
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Racquet Picture">
-                <div class="card-body">
-                  <h5 class="card-title"><%= r.model %></h5>
-                  <p class="card-text"><%= r.description %></p>
+            <a class="cardlink" href="/racquets/<%= r._id %>">
+            <div class="card" style="width: 25rem;">
+                <h4 class="card-title"><%= r.model %> <%= r.releaseYear %></h4>
+                <div id="racquet-img">
+                    <img class="card-img-top" src="<%= r.img %>" alt="Racquet Picture">
                 </div>
-        
-                <a href="/racquets/<%= r._id %>" class="card-link">Details</a>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><img class="info-img" src="https://www.perfect-tennis.com/wp-content/themes/tennis-theme/assets/images/icon-headsize.svg" alt=""> Head Size: <%= r.headSize %> sq. in.</li>
+                    <li class="list-group-item"><img class="info-img" src="https://www.perfect-tennis.com/wp-content/themes/tennis-theme/assets/images/icon-string-pattern.svg" alt=""> String Pattern: M: <%= r.mains %> | C: <%= r.crosses %></li>
+                    <li class="list-group-item"><img class="info-img" src="https://www.perfect-tennis.com/wp-content/themes/tennis-theme/assets/images/icon-power.svg" alt=""> Power: <%= r.power %></li>
+                    <li class="list-group-item"><img class="info-img" src="https://www.perfect-tennis.com/wp-content/themes/tennis-theme/assets/images/icon-strungweight.svg" alt=""> Weight: <%= r.weight %> grams</li>
+                    <li class="card-text list-group-item">Description: <br><%= r.shortDescription %></li>
+                </ul>
+            </div>
+            </a>
     </div>
-
 <% }) %>
 
-
-
-
-
-
-
-
 </main>
-
-
-
-
 
 <%- include('../partials/footer.ejs') %>

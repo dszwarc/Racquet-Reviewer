@@ -1,14 +1,86 @@
 <%- include('../partials/header') %>
 
-<form action="/racquets/<%= racquet._id %>?_method=PUT" method="POST">
-    <label for="model">Model: </label><input type="text" name="model" value="<%= racquet.model%>"><br><br><br>
-    <label for="make">Make: </label><input type="text" name="make" value="<%= racquet.make %>"><br><br><br>
-    <label for="headSize">Head Size: </label><input type="text" name="headSize" value="<%= racquet.headSize %>"><br><br><br>
-    <label for="mains">String Pattern M: </label><input type="text" name="mains" value="<%= racquet.mains %>">
-    <label for="crosses">C: </label><input type="text" name="crosses" value="<%= racquet.crosses %>"><br><br><br>
-    <label for="stiffness">Stiffness: </label><input type="text" name="stiffness" value="<%= racquet.stiffness %>"><br><br><br>
-    <label for="power">Power: </label><input type="text" name="power" value="<%= racquet.power %>"><br><br><br>
-    <button type="submit">Update Racquet</button>
+<form id="new-racq-form" action="/racquets/<%= racquet._id %>?_method=PUT" method="POST" class="racquet-form">
+    <h3>Edit Racquet Form</h3>
+    
+    <div class="form-group">
+        <label for="model">Model:</label>
+        <input value="<%= racquet.model %>" type="text" name="model" class="form-control" aria-describedby="modelHelp" placeholder="Pure Drive, Radical Pro, etc">
+        <small id="modelHelp" class="form-text text-muted">Enter the model name</small>
+    </div>
+    <div class="form-group">
+        <label for="model">Release Year:</label>
+        <input value="<%= racquet.releaseYear %>" type="text" name="releaseYear" class="form-control" placeholder="2023">
+    </div>
+    <div class="form-group">
+        <label for="make">Make:</label>
+        <select name="make" class="form-control" required="true">
+            <option value="Wilson">Wilson</option>
+            <option value="Head">Head</option>
+            <option value="Yonex">Yonex</option>
+            <option value="Babolat">Babolat</option>
+            <option value="Prince">Prince</option>
+            <option value="Technifibre">Technifibre</option>
+            <option value="Lacoste">Lacoste</option>
+            <option value="Dunlop">Dunlop</option>
+            <option value="Solinco">Solinco</option>
+            <option value="Gamma">Gamma</option>
+            <option value="Wilson">ProKennex</option>
+            <option value="Volkl">Volkl</option>
+            <option value="Diadem">Diadem</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="headSize">Head Size: </label>
+        <input type="text" name="headSize" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="mains">String Pattern: </label>
+        <div id="stringpatterndiv">
+            <select name="mains" class="form-control">
+                <option value="14">14</option>
+                <option value="16">16</option>
+                <option value="18">18</option>
+            </select>
+            <select name="crosses" class="form-control">
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="15">17</option>
+                <option value="18">18</option>
+                <option value="15">19</option>
+                <option value="15">20</option>
+            </select>
+        </div>
+         
+    </div>
+    <div class="form-group">
+        <label for="power">Power: </label>
+        <select name="power" class="form-control">
+            <option value="Low">Low</option>
+            <option value="Med">Medium</option>
+            <option value="High">High</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="weight">Weight: </label>
+        <input type="range" min="280" max="330" step="1" oninput="this.nextElementSibling.value = this.value">
+        <input type="text" name="weight" class="form-control">
+        <small id="weightHelp" class="form-text text-muted">Unstrung weight</small>
+    </div>
+    <div class="form-group">
+        <label for="shortDescription">Short Description: </label>
+        <input type="text" name="shortDescription" class="form-control" placeholder="E.g. This is a great power racquet for older players looking for pop!">
+    </div>
+    <div class="form-group">
+        <label for="longDescription">Long Description: </label>
+        <textarea rows="4" cols="1" name="longDescription" class="form-control" placeholder="E.g. This is a racquet that delivers a lot of power with minimal input from the user. The ball almost moves on its own on serves and volleys. Highly recommended for older players looking for the racquet to do more, or very young players who need help getting over the net! Advanced players may feel a lack of control in tight moments."></textarea>
+    </div>
+    <div class="form-group">
+        <label for="img">Racquet Image URL:</label>
+        <input type="text" name="img" class="form-control" placeholder="Imgur URL">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Racquet</button>
 </form>
 
 <%- include('../partials/footer') %>

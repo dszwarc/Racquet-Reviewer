@@ -4,9 +4,17 @@ body{
   grid-template-areas: 
   "nav"
   "main";
+  overscroll-behavior: none;
+  background-color: rgb(247, 247, 247) !important;
 }
 .brand-logo {
   margin-left: 15px;
+}
+
+.cardlink, .cardlink:hover{
+  color: black;
+  text-decoration: none;
+  
 }
 
 main{
@@ -77,10 +85,13 @@ main{
   position: 0 auto 0 auto;
   display: flex;
   margin: 0 20px 0 20px;
+  padding: 30px;
   flex: 1;
   width: 35%;
   flex-direction: column;
   align-content: center;
+  background-color: white;
+  border-radius: 10px;
 }
 
 #homepage{
@@ -121,4 +132,40 @@ textarea{
 #stringpatterndiv{
   display: flex;
   flex-direction: row;
+}
+
+#startbtn{
+  position:absolute;
+  top: 35%;
+  left: 100px;
+}
+
+.card-img-top{
+  height: 20vh;
+  width: auto;
+  margin:auto;
+}
+.card{
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+.jumbotron{
+  background-color: rgb(100, 140, 250) !important;
+  border-radius: 10px;
+  color:aliceblue !important;
+}
+
+.img-center{
+  margin: 0 auto;
+}
+
+#racquet-img{
+  display:flex;
+  justify-content: center !important;
+  margin: 15px;
+}
+
+.card-title{
+  padding: 15px;
 }
