@@ -15,6 +15,7 @@
     <div class="form-group">
         <label for="make">Make:</label>
         <select name="make" class="form-control" required="true">
+            <option value="<%= racquet.make %>" selected disabled hidden><%= racquet.make %></option>
             <option value="Wilson">Wilson</option>
             <option value="Head">Head</option>
             <option value="Yonex">Yonex</option>
@@ -32,23 +33,25 @@
     </div>
     <div class="form-group">
         <label for="headSize">Head Size: </label>
-        <input type="text" name="headSize" class="form-control">
+        <input value="<%= racquet.headSize %>" type="text" name="headSize" class="form-control">
     </div>
     <div class="form-group">
         <label for="mains">String Pattern: </label>
         <div id="stringpatterndiv">
-            <select name="mains" class="form-control">
+            <select value="<%= racquet.mains %>" name="mains" class="form-control">
+                <option value="<%= racquet.mains %>" selected disabled hidden><%= racquet.mains %></option>
                 <option value="14">14</option>
                 <option value="16">16</option>
                 <option value="18">18</option>
             </select>
             <select name="crosses" class="form-control">
+                <option value="<%= racquet.crosses %>" selected disabled hidden><%= racquet.crosses %></option>
                 <option value="15">15</option>
                 <option value="16">16</option>
                 <option value="15">17</option>
                 <option value="18">18</option>
-                <option value="15">19</option>
-                <option value="15">20</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
             </select>
         </div>
          
@@ -56,6 +59,7 @@
     <div class="form-group">
         <label for="power">Power: </label>
         <select name="power" class="form-control">
+            <option value="<%= racquet.power %>" selected disabled hidden><%= racquet.power %></option>
             <option value="Low">Low</option>
             <option value="Med">Medium</option>
             <option value="High">High</option>
@@ -64,23 +68,23 @@
     <div class="form-group">
         <label for="weight">Weight: </label>
         <input type="range" min="280" max="330" step="1" oninput="this.nextElementSibling.value = this.value">
-        <input type="text" name="weight" class="form-control">
+        <input value="<%= racquet.weight %>" type="text" name="weight" class="form-control">
         <small id="weightHelp" class="form-text text-muted">Unstrung weight</small>
     </div>
     <div class="form-group">
         <label for="shortDescription">Short Description: </label>
-        <input type="text" name="shortDescription" class="form-control" placeholder="E.g. This is a great power racquet for older players looking for pop!">
+        <input value="<%= racquet.shortDescription %>" type="text" name="shortDescription" class="form-control" placeholder="E.g. This is a great power racquet for older players looking for pop!">
     </div>
     <div class="form-group">
         <label for="longDescription">Long Description: </label>
-        <textarea rows="4" cols="1" name="longDescription" class="form-control" placeholder="E.g. This is a racquet that delivers a lot of power with minimal input from the user. The ball almost moves on its own on serves and volleys. Highly recommended for older players looking for the racquet to do more, or very young players who need help getting over the net! Advanced players may feel a lack of control in tight moments."></textarea>
+        <textarea rows="4" cols="1" name="longDescription" class="form-control" placeholder="E.g. This is a racquet that delivers a lot of power with minimal input from the user. The ball almost moves on its own on serves and volleys. Highly recommended for older players looking for the racquet to do more, or very young players who need help getting over the net! Advanced players may feel a lack of control in tight moments."><%= racquet.longDescription %></textarea>
     </div>
     <div class="form-group">
         <label for="img">Racquet Image URL:</label>
-        <input type="text" name="img" class="form-control" placeholder="Imgur URL">
+        <input value="<%= racquet.img %>" type="text" name="img" class="form-control" placeholder="Imgur URL">
     </div>
 
-    <button type="submit" class="btn btn-primary">Add Racquet</button>
+    <button type="submit" class="btn btn-primary">Update Racquet</button>
 </form>
 
 <%- include('../partials/footer') %>

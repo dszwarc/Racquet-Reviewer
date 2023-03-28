@@ -3,8 +3,15 @@ const RacquetModel = require('../models/racquet')
 
 async function index(req,res){
     const racquets = await RacquetModel.find({})
+    const baboRacquets = racquets.filter(r =>{
+        if (r.make === 'Babolat') return r;
+    })
+
+    const wilsonRacquets = findRacquets('Wilson', racquets)
+    console.log(baboRacquets)
+    console.log(wilsonRacquets, ' <--- these are all wilson racquets')
     res.render('racquets/index',{
-        racquets
+        racquets,
     })
 }
 
@@ -35,7 +42,7 @@ async function edit(req,res){
 }
 
 async function update(req, res){
-    const racquet = await RacquetModel.findOneAndUpdate(req.params.id, req.body)
+    await RacquetModel.findByIdAndUpdate(req.params.id, req.body)
     res.redirect(`/racquets/${req.params.id}`)
 }
 
@@ -47,4 +54,10 @@ module.exports = {
     delete: deleteOne,
     edit,
     update
+}
+
+function findRacquets(make, array){
+    array.filter(r =>{
+        if (r.make === make) return r;
+    })
 }

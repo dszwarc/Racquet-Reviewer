@@ -124,11 +124,13 @@ textarea{
   resize:vertical;
 }
 
-#racquet-display{
+.card-deck{
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-
+  gap: 25px;
 }
+
 #stringpatterndiv{
   display: flex;
   flex-direction: row;
@@ -168,4 +170,12 @@ textarea{
 
 .card-title{
   padding: 15px;
+}
+
+.card-text{
+  height:150px;
+}
+
+.list-group{
+  margin-bottom: 0px !important;
 }
