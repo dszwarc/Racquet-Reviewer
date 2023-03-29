@@ -3,12 +3,26 @@ const mongoose = require('mongoose');
 const reviewSchema = new mongoose.Schema(
     {
         content: String,
-        rating: 
+        groundRating: 
         {
             type: Number,
             min: 1,
-            max: 10,
-            default: 10
+            max: 5,
+            default: 5
+        },
+        volleyRating: 
+        {
+            type: Number,
+            min: 1,
+            max: 5,
+            default: 5
+        },
+        serveRating: 
+        {
+            type: Number,
+            min: 1,
+            max: 5,
+            default: 5
         },
         userId: 
         {

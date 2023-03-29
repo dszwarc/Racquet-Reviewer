@@ -131,7 +131,7 @@ textarea{
   gap: 25px;
 }
 
-#stringpatterndiv{
+.horizontal-form{
   display: flex;
   flex-direction: row;
 }
@@ -154,7 +154,6 @@ textarea{
 
 .jumbotron{
   background-color: rgb(35, 140, 250) !important;
-  border-radius: 10px;
   color:aliceblue !important;
 }
 

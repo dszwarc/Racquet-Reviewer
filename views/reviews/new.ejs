@@ -1,14 +1,45 @@
 <%- include('../partials/header') %>
 
-<form method="POST" action="/racquets/<%= racquet._id %>/reviews">
-   <div>
-    <label for="rating">Rating (1-10):</label>
-    <input type="text" name="rating">
+<form class="racquet-form" method="POST" action="/racquets/<%= racquet._id %>/reviews">
+  <h1>New Review</h1><br>
+  <div class="horizontal-form">
+    <div class="form-group col-md-4">
+        <label for="groundRating">Ground Strokes:</label>
+        <select name="groundRating" class="form-control">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="volleyRating">Volleys:</label>
+        <select name="volleyRating" class="form-control">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="serveRating">Comfort:</label>
+        <select name="groundRating" class="form-control">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
    </div>
-    <br>
-    <label for="content">Review:</label><input type="text" name="content"><br>
-    <button type="submit">Submit Review</button>
+</div>
+    <div class="form-group">
+        <label for="content">Review:</label>
+        <textarea class="form-control" name="content" maxlength="160" rows="4" cols="1"></textarea>
+    </div>
+    <button class="btn-primary" type="submit">Submit Review</button>
 </form>
-<h1>new review page</h1>
+
 
 <%- include('../partials/footer') %>
