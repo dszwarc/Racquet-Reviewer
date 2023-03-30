@@ -337,14 +337,16 @@ footer{
 #racquet-name{
   font-family: 'Anton', sans-serif;
 }
+
 #racquet-make{
   font-family: 'Archivo', sans-serif;
   font-style: italic;
 }
 
- #search{
+#search{
   border-bottom: 2px rgb(221,221,221) solid;
   padding-bottom: 15px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
