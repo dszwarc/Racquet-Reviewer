@@ -21,6 +21,15 @@
                 <option value="Babolat">Babolat</option>
                 <option value="Wilson">Wilson</option>
                 <option value="Yonex">Yonex</option>
+                <option value="Head">Head</option>
+                <option value="Gamma">Gamma</option>
+                <option value="Lacoste">Lacoste</option>
+                <option value="Prince">Prince</option>
+                <option value="Technifibre">Technifibre</option>
+                <option value="Diadem">Diadem</option>
+                <option value="Volkl">Volkl</option>
+                <option value="Dunlop">Dunlop</option>
+                <option value="ProKennex">ProKennex</option>
             </select>
             <button class="btn btn-success" type="submit">Filter</button>
         </form>
@@ -49,9 +58,12 @@
                     </div>
                 <% }) %>
             <% } else { %>
-                <h1>There are no racquets added for this manufacturer yet.</h1>
-                <a class="btn btn-success" href="/racquets/new">Add one now!</a>
-                <% } %>
+                <div id="no-manu">
+                    <br><br><br>
+                    <h1>There are no racquets added for this manufacturer yet.</h1>
+                    <a class="btn btn-success" href="/racquets/new">Add one now!</a>
+                </div>
+            <% } %>
             
             
         </div>
