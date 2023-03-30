@@ -1,3 +1,15 @@
+@media screen and (max-width: 780) {
+  .navbar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .racquet-form{
+    width: 90%;
+  }
+  
+}
+
 body{
   display: flex;
   flex-direction: column;
@@ -348,14 +360,3 @@ footer{
   margin: auto;
 }
 
-@media screen and (max-width: 780) {
-  .navbar{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .racquet-form{
-    width: 90%;
-  }
-  
-}
