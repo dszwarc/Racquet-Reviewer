@@ -347,3 +347,12 @@ footer{
   justify-self: center;
   margin: auto;
 }
+
+@media screen and (max-width: 780) {
+  .navbar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+}
