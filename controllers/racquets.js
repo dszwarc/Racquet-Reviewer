@@ -1,16 +1,19 @@
-const UserModel = require('../models/user')
 const RacquetModel = require('../models/racquet')
 
 async function index(req,res){
-    if (req.query){
-        const racquets = await RacquetModel.find({})
+    if (req.query.make){
+        console.log('we are in the if statement')
+        const racquets = await RacquetModel.find({make: req.query.make})
         res.render('racquets/index',{
             racquets,
+            requery: req.query
         })
     } else {
+        console.log('we are in the else statment')
         const racquets = await RacquetModel.find({})
         res.render('racquets/index',{
             racquets,
+            requery: null
         })
     }
 }
