@@ -1,35 +1,42 @@
-# passport-boilerplate
+# Racquet-Reviewer
+###### A user-friendly tennis racquet review website
+
+________
+
+![home page](https://i.imgur.com/aLEpk2L.jpg)
 
 
-This is your passport boilerplate.
-
-## Setup 
-
-1. Clone the repo
-2. Rename the folder to your Project
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
+[Racquet Reviewer](https://ill-teal-grasshopper-shoe.cyclic.app/) is an online racquet database that allows users to add racquets and reviews. In addition, users can filter by racquet manufacturer to more quickly compare their favorite racquets.
 
 
-#### Setup your git repo
-0. Setup your `.env` file and add all the things you need! (look at mongoose movies for reference!)
-1. in the project root `git init`
-2. `git add .` to add all the starter code
-3. `git commit -m "setup boilerplate"` 
-4. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-5. copy the remote address
-6. In your terminal add the remote `git remote add origin yourGithubRepo'sAddressGoesHere`
-7. `git pull origin main` If a screen pulls up asking you to do something just press `:q` and then `enter` (thats vim btw :) )
-8. `git push origin main`
 
-#### Setup your login (THE APP WON'T WORK until you do, no VIEWS are setup, or the landing route)
+______
+### Technologies Used
 
-0. Setup your database connection string
-1. Then Setup Your User Model, 
-2. Follow the steps from the lesson plan to get your Google login credentials for your `.env` file (create the file if you haven't), or you can just copy the ones from earlier if you want to reuse them.
-3. Setup the Code in your config passport 
-4. Setup your callback routes in your `routes/index`
-5. Setup a view and test your login!
+  * Node.js
+  * Express
+  * MongoDB
+  * HTML
+  * CSS
+  * Bootstrap
+______
+### Planning
 
-#### Make a commit 
+![ERD](https://i.imgur.com/x6Ljwav.png)
 
-```git commit -m "setup up oauth and User Model"```
+First, I created an ERD diagram listing the models I planned to create for my website. After listing them out, I assigned several keys I thought my final models would hold.
+
+![Trello](https://i.imgur.com/1rDtsg9.png)
+
+Next, I created a Trello board for my project, detailing key user stories that would define the scope of my project. 
+
+My main focus was to create a website that used all the CRUD operations and RESTful routes.
+
+_____
+### Future Updates
+
+I have already begun planning future updates to my project where I can look to make the user experience even better.
+
+- [ ] Create an "advanced search" feature to look at multiple keys concurrently
+- [ ] Create a favoriting system where users can add racquets to their favorites
+- [ ] Add a comparison feature allowing users to add multiple racquets to a comparison screen to more easily see specs side-by-side
