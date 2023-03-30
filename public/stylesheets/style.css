@@ -354,5 +354,8 @@ footer{
     flex-direction: row;
     flex-wrap: wrap;
   }
+  .racquet-form{
+    width: 90%;
+  }
   
 }
