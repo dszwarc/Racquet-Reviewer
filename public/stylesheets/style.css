@@ -343,6 +343,8 @@ footer{
 }
 
  #search{
+  border-bottom: 2px rgb(221,221,221) solid;
+  padding-bottom: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
