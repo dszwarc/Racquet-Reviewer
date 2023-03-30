@@ -1,36 +1,60 @@
 <%- include('../partials/header.ejs') %>
     
 <div class="jumbotron">
-    <h1 id="page-title">ALL RACQUETS</h1>
+    <% let title = query.toUpperCase() %>
+    <h1 id="page-title"><%= title %> RACQUETS</h1>
     <hr class="my-4">
-    <p id="lead" class="lead">A list of all racquets cataloged on the website, organized by manufacturer</p>
+    <% if (title === 'ALL') { %>
+        <p id="lead" class="lead">A list of all racquets cataloged on the website</p>
+    <% } else { %>
+    <p id="lead" class="lead">A list of all <%= query %> racquets cataloged on the website</p>
+    <% } %>
 </div>
 
 <main>
-    <% if (requery) { %>
+    <div id="search">
+        <h5>Filter by manufacturer:</h5>
+        <form id="make-query" action="/racquets" method="GET">
+            <select name="make">
+                <option value="<%= query %>" selected hidden disabled><%= query %></option>
+                <option value="All">All</option>
+                <option value="Babolat">Babolat</option>
+                <option value="Wilson">Wilson</option>
+                <option value="Yonex">Yonex</option>
+            </select>
+            <button class="btn btn-success" type="submit">Filter</button>
+        </form>
+    </div>
+    
         <div class="card-deck">
-            <% racquets.forEach(r => { %>
+            <% if (racquets.length > 0) { %>
+                <% racquets.forEach(r => { %>
                 
-                <div class="card" style="width: 25rem;">
-                    
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <h4 class="card-title"><%= r.model %> <%= r.releaseYear %></h4>
-                            <div id="racquet-img">
-                                <a href="/racquets/<%= r._id %>"><img class="card-img-top" src="<%= r.img %>" alt="Racquet Picture"></a>
-                            </div>
-                        </li>
-                        <li class="list-group-item"><img class="info-img" src="https://www.perfect-tennis.com/wp-content/themes/tennis-theme/assets/images/icon-headsize.svg" alt=""> Head Size: <%= r.headSize %> sq. in.</li>
-                        <li class="list-group-item"><img class="info-img" src="https://www.perfect-tennis.com/wp-content/themes/tennis-theme/assets/images/icon-string-pattern.svg" alt=""> String Pattern: M: <%= r.mains %> | C: <%= r.crosses %></li>
-                        <li class="list-group-item"><img class="info-img" src="https://www.perfect-tennis.com/wp-content/themes/tennis-theme/assets/images/icon-power.svg" alt=""> Power: <%= r.power %></li>
-                        <li class="list-group-item"><img class="info-img" src="https://www.perfect-tennis.com/wp-content/themes/tennis-theme/assets/images/icon-strungweight.svg" alt=""> Weight: <%= r.weight %> grams</li>
-                        <li class="card-text list-group-item"> Description: <br><%= r.shortDescription %></li>
-                        <li class="list-group-item"><a class="btn btn-primary" href="/racquets/<%= r._id %>">Details</a></li>
-                    </ul>
-                </div>
-            <% }) %>
+                    <div class="card" style="width: 25rem;">
+                        
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <h4 class="card-title"><%= r.model %> <%= r.releaseYear %></h4>
+                                <div id="racquet-img">
+                                    <a href="/racquets/<%= r._id %>"><img class="card-img-top" src="<%= r.img %>" alt="Racquet Picture"></a>
+                                </div>
+                            </li>
+                            <li class="list-group-item"><img class="info-img" src="https://www.perfect-tennis.com/wp-content/themes/tennis-theme/assets/images/icon-headsize.svg" alt=""> Head Size: <%= r.headSize %> sq. in.</li>
+                            <li class="list-group-item"><img class="info-img" src="https://www.perfect-tennis.com/wp-content/themes/tennis-theme/assets/images/icon-string-pattern.svg" alt=""> String Pattern: M: <%= r.mains %> | C: <%= r.crosses %></li>
+                            <li class="list-group-item"><img class="info-img" src="https://www.perfect-tennis.com/wp-content/themes/tennis-theme/assets/images/icon-power.svg" alt=""> Power: <%= r.power %></li>
+                            <li class="list-group-item"><img class="info-img" src="https://www.perfect-tennis.com/wp-content/themes/tennis-theme/assets/images/icon-strungweight.svg" alt=""> Weight: <%= r.weight %> grams</li>
+                            <li class="card-text list-group-item"> Description: <br><%= r.shortDescription %></li>
+                            <li class="list-group-item"><a class="btn btn-primary" href="/racquets/<%= r._id %>">Details</a></li>
+                        </ul>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <h1>There are no racquets added for this manufacturer yet.</h1>
+                <a class="btn btn-success" href="/racquets/new">Add one now!</a>
+                <% } %>
+            
+            
         </div>
-    <% } %>
     
 </main>
 

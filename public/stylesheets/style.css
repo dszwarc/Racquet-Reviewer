@@ -328,3 +328,13 @@ footer{
   font-family: 'Archivo', sans-serif;
   font-style: italic;
 }
+
+ #search{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#make-query{
+  display: flex;
+  flex-direction: row;
+}

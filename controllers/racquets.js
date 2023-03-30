@@ -1,21 +1,21 @@
 const RacquetModel = require('../models/racquet')
 
 async function index(req,res){
-    if (req.query.make){
-        console.log('we are in the if statement')
-        const racquets = await RacquetModel.find({make: req.query.make})
-        res.render('racquets/index',{
-            racquets,
-            requery: req.query
-        })
-    } else {
-        console.log('we are in the else statment')
+    let rmake = req.query.make ? req.query.make : 'All';
+    if (rmake === 'All'){
         const racquets = await RacquetModel.find({})
         res.render('racquets/index',{
-            racquets,
-            requery: null
+        racquets,
+        query: rmake
+        })
+    } else {
+        const racquets = await RacquetModel.find({make: rmake})
+        res.render('racquets/index',{
+        racquets,
+        query: rmake
         })
     }
+    
 }
 
 function newRacquet(req, res){
