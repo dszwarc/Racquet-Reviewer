@@ -1,9 +1,51 @@
 <%- include('../partials/header') %>
 
-<form method="POST" action="/reviews/<%= review._id %>?_method=PUT">
-    <label for="rating">Rating (1-10):</label><input type="text" name="rating" value="<%= review.rating %>"><br>
-    <label for="content">Review:</label><input type="text" name="content" value="<%= review.content %>"><br>
-    <button type="submit">Submit Review</button>
-</form>
+<form class="racquet-form" method="POST" action="/reviews/<%= review._id %>?_method=PUT">
+    <h1>Edit Review</h1><br>
+    <div class="form-group">
+        <label for="title">Review Title:</label>
+        <input type="text" class="form-control" name="title"><%= review.title %></input>
+      </div>
+    <div class="horizontal-form">
+      <div class="form-group col-md-4">
+          <label for="groundRating">Ground Strokes:</label>
+          <select name="groundRating" class="form-control">
+            <option selected hidden disabled value="<%= review.groundRating %>"><%= review.groundRating %></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+      </div>
+      <div class="form-group col-md-4">
+          <label for="volleyRating">Volleys:</label>
+          <select name="volleyRating" class="form-control">
+            <option selected hidden disabled value="<%= review.volleyRating %>"><%= review.volleyRating %></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+      </div>
+      <div class="form-group col-md-4">
+          <label for="serveRating">Serves:</label>
+          <select name="groundRating" class="form-control">
+            <option selected hidden disabled value="<%= review.serveRating %>"><%= review.serveRating %></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+     </div>
+  </div>
+      <div class="form-group">
+          <label for="content">Review:</label>
+          <textarea class="form-control" name="content" maxlength="160" rows="4" cols="1"><%= review.content %></textarea>
+      </div>
+      <button class="btn-primary" type="submit">Submit Review</button>
+  </form>
 
 <%- include('../partials/footer') %>

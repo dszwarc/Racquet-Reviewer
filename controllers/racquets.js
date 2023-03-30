@@ -57,7 +57,7 @@ module.exports = {
 }
 
 function findRacquets(make, array){
-    array.filter(r =>{
+    return array.filter(r =>{
         if (r.make === make) return r;
     })
 }

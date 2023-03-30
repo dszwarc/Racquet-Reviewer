@@ -5,10 +5,13 @@
 <div class="racquet-show">
     <img id="racquet-show-img" src="<%= racquet.img %>" alt="">
     <div id="racquet-info">
-        <h1 id="racquet-name"><%= racquet.model %> <%= racquet.releaseYear %></h1>
-        <h4 id="racquet-make"><%= racquet.make %></h4>
-        <br>
         <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <h1 id="racquet-name"><%= racquet.model %> <%= racquet.releaseYear %></h1>
+            </li>
+            <li class="list-group-item">
+                <h4 id="racquet-make"><%= racquet.make %></h4>
+            </li>
             <li class="list-group-item"><img class="info-img" src="https://www.perfect-tennis.com/wp-content/themes/tennis-theme/assets/images/icon-headsize.svg" alt=""> Head Size: <%= racquet.headSize %> sq. in.</li>
             <li class="list-group-item"><img class="info-img" src="https://www.perfect-tennis.com/wp-content/themes/tennis-theme/assets/images/icon-string-pattern.svg" alt=""> String Pattern: M: <%= racquet.mains %> | C: <%= racquet.crosses %></li>
             <li class="list-group-item"><img class="info-img" src="https://www.perfect-tennis.com/wp-content/themes/tennis-theme/assets/images/icon-power.svg" alt=""> Power: <%= racquet.power %></li>
@@ -34,39 +37,57 @@
 
 <br>
 
-<div id="review-section">
-    <h1>Reviews</h1>
+
+<div id="review-jumbo" class="jumbotron">
+    <h1 id="page-title">REVIEWS</h1>
+    <hr class="my-4">
     <% if (user) { %>
         <form action="/racquets/<%= racquet._id %>/reviews/new">
-            <button class="button" type="submit">Leave a Review</button>
+            <button class="button btn-primary lead" type="submit">Leave a Review</button>
         </form>
     <% } else { %>
-        <p>Please log in to be able to leave reviews.</p>
+        <p class="lead">Please log in to be able to leave reviews.</p>
     <% } %>
-    
-    
+</div>
+
+<div id="review-section">
     <% if (racquet.reviews.length > 0) { %>
-        <% racquet.reviews.forEach(r => { %>
-            <div>
-                <%= r.content %>
         
-                <% if (user && user._id.equals(r.userId)) { %>
-                    <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                        <button type="submit">Delete Review</button>
-                    </form>
-                
-                        <br>
-                
-                    <a href="/reviews/<%= r._id %>/edit">Edit Review</a>
-                <% } %>
-                
-            </div>
+        <% racquet.reviews.forEach(r => { %>
+            
+                <div class="review">
+                    <div id="review-avatar">
+                        <img referrerpolicy="no-referrer" src="<%= r.userAvatar %>" alt="">
+                    </div>
+                    
+                    <div id="review-title">
+                        <h2><%= r.title %></h2>
+                    </div>
+                    
+                    <div id="review-by">
+                        <h5>Review by: <%= r.username %></h5><br>
+                    </div>
+                    <div id="review-body">
+                        <p><%= r.content %></p>
+                        <h6><%= r.updatedAt %></h6>
+                    </div>
+                    
+            
+                    <% if (user && user._id.equals(r.userId)) { %>
+                        <div id="review-buttons">
+                            <a class="btn-warning" href="/reviews/<%= r._id %>/edit">Edit Review</a><br>
+                            <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                                <button class="btn-danger" type="submit">Delete Review</button>
+                            </form>
+                        </div>
+                    <% } %>
+                </div>    
         <% }) %>
+        
     <% } else { %>
         <h5>No reviews yet. Be the first to leave a review!</h5>
     <% } %>
 </div>
-
 
 
 <%- include('../partials/footer.ejs') %>

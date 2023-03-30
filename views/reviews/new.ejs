@@ -2,6 +2,10 @@
 
 <form class="racquet-form" method="POST" action="/racquets/<%= racquet._id %>/reviews">
   <h1>New Review</h1><br>
+  <div class="form-group">
+    <label for="title">Review Title:</label>
+    <input type="text" class="form-control" name="title"></input>
+  </div>
   <div class="horizontal-form">
     <div class="form-group col-md-4">
         <label for="groundRating">Ground Strokes:</label>
@@ -24,8 +28,8 @@
         </select>
     </div>
     <div class="form-group col-md-4">
-        <label for="serveRating">Comfort:</label>
-        <select name="groundRating" class="form-control">
+        <label for="serveRating">Serves:</label>
+        <select name="serveRating" class="form-control">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
