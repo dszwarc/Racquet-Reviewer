@@ -3,7 +3,9 @@
 
 
 <div class="racquet-show">
-    <img id="racquet-show-img" src="<%= racquet.img %>" alt="">
+    <div id="racquet-show-img-div">
+        <img id="racquet-show-img" src="<%= racquet.img %>" alt="">
+    </div>
     <div id="racquet-info">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
@@ -63,21 +65,22 @@
                     <div id="review-title">
                         <h2><%= r.title %></h2>
                     </div>
-                    
-                    <div id="review-by">
-                        <h5>Review by: <%= r.username %></h5><br>
+                    <div id="review-rating">
+                        <p>Groundstrokes: <%= r.groundRating %> | Volleys: <%= r.volleyRating %> | Serves: <%= r.serveRating %></p>
                     </div>
                     <div id="review-body">
-                        <p><%= r.content %></p>
-                        <h6><%= r.updatedAt %></h6>
+                        <p>"<%= r.content %>"</p>
+                        
                     </div>
-                    
+                    <div id="review-by">
+                        <h6>Review by: <%= r.username %> <br> <%= r.updatedAt %></h6>
+                    </div>
             
                     <% if (user && user._id.equals(r.userId)) { %>
                         <div id="review-buttons">
-                            <a class="btn-warning" href="/reviews/<%= r._id %>/edit">Edit Review</a><br>
+                            <a class="btn btn-warning" href="/reviews/<%= r._id %>/edit">Edit Review</a><br>
                             <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                                <button class="btn-danger" type="submit">Delete Review</button>
+                                <button class="btn btn-danger" type="submit">Delete Review</button>
                             </form>
                         </div>
                     <% } %>

@@ -2,17 +2,17 @@ const UserModel = require('../models/user')
 const RacquetModel = require('../models/racquet')
 
 async function index(req,res){
-    const racquets = await RacquetModel.find({})
-    const baboRacquets = racquets.filter(r =>{
-        if (r.make === 'Babolat') return r;
-    })
-
-    const wilsonRacquets = findRacquets('Wilson', racquets)
-    console.log(baboRacquets)
-    console.log(wilsonRacquets, ' <--- these are all wilson racquets')
-    res.render('racquets/index',{
-        racquets,
-    })
+    if (req.query){
+        const racquets = await RacquetModel.find({})
+        res.render('racquets/index',{
+            racquets,
+        })
+    } else {
+        const racquets = await RacquetModel.find({})
+        res.render('racquets/index',{
+            racquets,
+        })
+    }
 }
 
 function newRacquet(req, res){
