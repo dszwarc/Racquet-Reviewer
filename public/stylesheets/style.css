@@ -66,15 +66,15 @@ main{
   font-family: 'Anton', sans-serif;
   color:aliceblue !important;
   position: absolute;
-  left: 45px;
-  top: auto;
+  left: 43px;
+  top: 13px;
   font-size: 17px;
   text-shadow: 1px 2px 15px black;
 }
 
 #racquetlogo{
   position: absolute;
-  left: 50px;
+  left: 33px;
   top: 50%;
   width: 55px;
   height: auto;
