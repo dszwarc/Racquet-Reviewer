@@ -357,11 +357,6 @@ footer{
 }
 
 @media (min-width: 780) {
-  .navbar{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
   .racquet-form{
     width: 35%;
     background-color: aqua !important;
