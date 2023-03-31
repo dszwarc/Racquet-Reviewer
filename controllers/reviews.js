@@ -60,7 +60,10 @@ async function update(req, res){
         const review = racquet.reviews.id(req.params.id)
         console.log(review, '  <--- this should be the individual review on the racquet matching the id')
         review.content = req.body.content;
-        review.rating = req.body.rating;
+        review.groundRating = req.body.groundRating;
+        review.serveRating = req.body.serveRating;
+        review.title = req.body.title;
+        review.volleyRating = req.body.volleyRating;
         racquet.save();
         res.redirect(`/racquets/${racquet._id}`)
     }catch(err){
