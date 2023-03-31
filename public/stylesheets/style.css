@@ -1,14 +1,4 @@
-@media all and (min-width: 780) {
-  .navbar{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .racquet-form{
-    width: 35%;
-  }
-  
-}
+
 
 body{
   display: flex;
@@ -364,3 +354,13 @@ footer{
   margin: auto;
 }
 
+@media all and (min-width: 780) {
+  .navbar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .racquet-form{
+    width: 35%;
+  }
+}
