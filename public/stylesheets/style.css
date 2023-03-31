@@ -137,11 +137,11 @@ textarea{
   flex-direction: row;
 }
 
-#startbtn{
+/* #startbtn{
   position:absolute;
   top: 35%;
   left: 100px;
-}
+} */
 
 .card-img-top{
   height: 20vh;
